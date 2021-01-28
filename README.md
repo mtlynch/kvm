@@ -50,7 +50,7 @@ Required hardware:
 * HDMI Cable (3.3 Feet, or shorter): https://www.amazon.com/dp/B07FFS7RH1/
 * USB-C to USB-A Adapter Cable (3 Feet, or shorter): https://www.amazon.com/dp/B01GGKYS6E/
 
-![Hardware Setup](https://github.com/catid/kvm/raw/master/art/hw_setup.jpg "Hardware Setup") 
+![Hardware Setup](https://github.com/catid/kvm/raw/master/art/hw_setup.jpg "Hardware Setup")
 
 The software is compatible with this fanless heatsink case and will not cause it to overheat.
 
@@ -104,17 +104,17 @@ This may be a good time to change the SSH password on the device to a more secur
 Build and install the KVM software in the SSH session:
 
 ```
+sudo apt update
+sudo apt install -y git janus janus-dev cmake g++ libglib2.0-dev
+sudo systemctl disable janus
+
 cd ~
 git clone https://github.com/catid/kvm.git
 cd kvm
 
-sudo apt install janus janus-dev cmake g++ libglib2.0-dev
-
-sudo systemctl disable janus
-
 mkdir build
 cd build
-cmake ..
+cmake ../..
 make -j4
 
 cd /home/pi/kvm/scripts/
